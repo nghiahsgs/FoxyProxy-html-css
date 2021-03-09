@@ -1,0 +1,114 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title data-i18n="import">FoxyProxy Import Settings</title>
+    <link rel="icon" type="image/png" href="/images/icon.svg">
+    <!-- <link rel="stylesheet" href="styles/fontawesome-4.6.3.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="styles/app.css">
+    <style>
+      i.fa, i.fa:hover { color: inherit; font-size: inherit; }
+      i.fa.fa-eye, i.fa.fa-eye:hover {
+        font-size: 1.5em;
+        vertical-align: middle;
+      }
+      label {
+        display: inline-block;
+      }
+      textarea {
+          height: 10em;
+      }
+      div.tooltip hr {
+        color: white;
+      }
+      div.tooltip h3 {
+        margin: 0 0 .2em 0;
+      }
+      .align-right {
+        text-align: right;
+      }
+      .no-margin {
+        margin: 0;
+      }
+      #completeFormatTooltip {
+        width: 40rem;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- header -->
+    <div class="prime header" data-i18n="importProxyList">Import Proxy List</div>
+
+    <!-- spinner -->
+    <div class="spinner" style="display: none;"><i class="fa fa-refresh fa-spin"></i></div>
+
+    <!-- main -->
+    <div class="prime">
+      <div class="tooltip">
+        <span data-i18n="pasteList">Paste a proxy list below.</span> <span data-i18n="formats">Formats</span> <span data-i18n="simple">simple</span>
+        <i class="fa fa-info-circle"></i>
+        <div class="tooltiptext bottom table">
+          <div class="tooltiptable">
+            <p class="no-margin" data-i18n="simpleFormat">ip address/server and port are required. username:password are optional.</p>
+            <p class="monospace"><span data-i18n="ipPort">ip:port</span><br><span data-i18n="ipPort">ip:port</span><br><span data-i18n="ipPortUsernamePassword">ip:port:username:password</span></p>
+          </div>
+          <hr>
+          <div class="tooltiptablefooter">
+            <h3 data-i18n="examples">Examples</h3>
+            78.205.12.1:6001<br>12.999.51.81:3128<br>foobar.com:12001<br>foobar.com:3128:kyleReese:hunterKiller
+            <p><a data-i18n="help" target="_blank" href="https://github.com/foxyproxy/firefox-extension/wiki/Import-Proxy-List">Help</a></p>
+          </div>
+        </div>
+      </div>
+      /
+      <div class="tooltip">
+        <span data-i18n="complete">complete</span>
+        <i class="fa fa-info-circle"></i>
+        <div id="completeFormatTooltip" class="tooltiptext bottom table">
+          <div class="tooltiptable">
+            <p data-i18n="completeFormat">With this format, you can specify all proxy settings. But only protocol and server are required.</p>
+            <h3 data-i18n="examples">Examples</h3>
+            <p class="monospace">* proxy://78.205.12.1:666<br>
+            * proxy://johnConnor:hunterKiller@192.168.100.9:5192?color=663300<br>
+            * socks://12.999.51.81?title=China&amp;cc=CN&amp;country=中国&amp;proxyDns=false<br>
+            * socks://12.999.51.81:331?patternExcludesIntranet=false<br>
+            * https://192.168.100.9:5192?patternIncludesAll=false<br>
+            * ssl://kyleReese:passw0rd@78.205.12.1:21?color=ff00bc&amp;title=work%20proxy</p>
+          </div>
+          <hr>
+          <div class="tooltiptablefooter">
+            <a data-i18n="help" target="_blank" href="https://github.com/foxyproxy/firefox-extension/wiki/Import-Proxy-List">Help</a>
+          </div>
+        </div>
+      </div>
+      <br><br>
+
+      <textarea id="proxyList"></textarea>
+
+      <label data-i18n="overwriteProxies">Overwrite existing proxies</label>
+      <input id="overwrite" class="switch" type="checkbox"><label for="overwrite"></label>
+      <div class="tooltip">
+        <i class="fa fa-info-circle"></i>
+        <div class="tooltiptext center bottom">
+          <div class="tooltiptable">
+            <span data-i18n="overwritProxiesHelp1">Check to delete all existing proxies and replace them with proxies from this list.</span>
+          </div>
+          <br>
+          <div class="tooltiptable">
+            <span data-i18n="overwritProxiesHelp2">Uncheck to append proxies in this list to existing proxies.</span>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <button id="import" type="button" class="button" data-i18n="import"><i class="fa fa-download"></i> Import Settings</button>
+
+      <div class="align-right">
+        <button type="button" class="button" data-i18n="back">◁ Back</button>
+      </div>
+    </div>
+
+  <script src="scripts/utils.js"></script>
+  <script src="scripts/import-proxy-list.js"></script>
+  
+
+</body></html>

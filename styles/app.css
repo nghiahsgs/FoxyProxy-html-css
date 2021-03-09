@@ -1,0 +1,630 @@
+body {
+    background: #630;
+    color: #333;
+    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    margin: 0;
+    padding: 1em;
+    animation: fadein 0.3s ease-in-out;
+  }
+  
+  body::after {
+    content: '';
+    background-image: url('/images/logo.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    bottom: 0.5em;
+    right: 0.5em;
+    display: inline-block;
+    width: 128px;
+    height: 128px;
+    opacity: 0.3;
+    z-index: -1;
+  }
+  
+  @keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .flex > * {
+    flex: 1;
+  }
+  
+  img {
+    vertical-align: text-bottom;
+  }
+  
+  
+  a {
+    color: #f90;
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  a:hover {
+    color: #c60;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #c60;
+  }
+  
+  fieldset {
+    border-radius: 10px;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+  }
+  
+  legend {
+    color: #c60;
+    font-size: 1.1em;
+  }
+  
+  table {
+    border-spacing: 0;
+    width: 100%;
+  }
+  
+  th {
+    background-color: #eee;
+    padding: 0.4em;
+    text-align: left;
+    border-bottom: 1px solid #fff;
+  }
+  
+  tr{
+    background-color: #f8f8f8;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f5fffa;
+  }
+  tbody tr:hover {
+    background-color: #cae1d3;
+  }
+  
+  td {
+    padding: 0.2em;
+  }
+  
+  .ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  
+  
+  
+  button, .button {
+    background: #f90;
+    border-radius: 3px;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin: 0 0 0 0.5em;
+    min-width: 6em;
+    padding: 0.4em 1em;
+    text-align: center;
+    transition: all 0.3s ease-out;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  button:not(.plain):hover, .button:hover {
+    background: #e37f08;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
+  }
+  
+  button.small {
+    font-size: 0.8em;
+    padding: 0.3em 0.5em;
+    min-width: 2em;
+  }
+  
+  button.alert {
+    background: #ec5840;
+  }
+  button.alert:hover {
+    background: #dc143c;
+  }
+  
+  button.plain {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    min-width: 1em;
+  }
+  
+  button[type="submit"] {
+    background-color: #4682b4;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #05a;
+  }
+  
+  
+  
+  label {
+  /*  font-size: 0.9em;*/
+  }
+  
+  
+  input::placeholder {
+    font-style: italic;
+  }
+  
+  input[type="file"] {
+    display: none;
+  }
+  
+  [type="text"], [type="password"], [type="url"], textarea {
+    background-color: #fefefe;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+    color: #999;
+    display: inline-block;
+    font-size: 1em;
+    margin: 0 0 1em;
+    padding: 0.5em;
+    transition: all 0.5s;
+    width: 100%;
+  }
+  
+  [type="text"]:focus, [type="password"]:focus, [type="url"]:focus, textarea:focus {
+    border: 1px solid #999;
+    box-shadow: 0 0 5px #cacaca;
+  }
+  
+  
+  
+  select {
+    background-color: #f8f8ff;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="32" height="24" viewBox="0 0 32 24" fill="rgb(255, 153, 0)"><polygon points="0,0 32,0 16,24"></polygon></svg>');
+    background-position: right 0.5em center;
+    background-repeat: no-repeat;
+    background-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    color: #999;
+    font-size: 1em;
+    margin: 0 0 1em;
+    padding: 0.5em;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  select:disabled {
+    background-color: #e6e6e6;
+    cursor: default;
+  }
+  
+  select[multiple] {
+    height: auto;
+  }
+  
+  /* ----- switch ----- */
+  input.switch {
+    display: none;
+  }
+  
+  input.switch + label {
+    background: #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+    cursor: pointer;
+    display: inline-block;
+    height: 1.5em;
+    margin-right: 0.5em;
+    position: relative;
+    text-align: left;
+    transition: all 0.5s ease-in-out;
+    vertical-align: middle;
+    width: 3.5em;
+    font-size: 0.9em;
+  }
+  
+  input.switch + label::before {
+    background: #ccc;
+    border-radius: 5px;
+    box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+    content: '';
+    display: block;
+    height: 1.1em;
+    left: 0.2em;
+    position: absolute;
+    top: 0.2em;
+    transition: all 0.5s ease-in-out;
+    width: 1.1em;
+  }
+  
+  input.switch:checked + label {
+    background: #f90;
+  }
+  
+  input.switch:checked + label::before {
+    left: 2.2em;
+    background: #fff;
+  }
+  
+  input.switch + label::after {
+    display: inline-block;
+    content: 'Off';
+    color: #fff;
+    margin-left: 1.8em;
+    transition: all 0.5s ease-in-out;
+    font-weight: bold;
+    vertical-align: middle;
+  }
+  
+  input.switch:checked + label::after {
+    content: 'On';
+    margin-left: 0.2em;
+  }
+  /* ----- /switch ----- */
+  
+  .template {
+    display: none !important;
+  }
+  
+  .invalid {
+    background-color: rgba(236, 88, 64, 0.1);
+    border-color: #ec5840;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  .bold {
+    font-weight: bold;
+  }
+  
+  .prime {
+    margin: 0 0 1em 0;
+    padding: 1em;
+    border-radius: 5px;
+    background-color: white;
+  }
+  
+  .prime.alert {
+    background-color: #fce6e2;
+    border: 1px solid #ccc;
+  }
+  
+  .prime.warning {
+    background-color: #fff3d9;
+    border: 1px solid #ccc;
+  }
+  
+  .prime.small {
+      padding: 0.5em;
+      border: 1px solid #ccc;
+  }
+  
+  .prime.tiny {
+    margin: 0;
+    padding: 0.1em;
+    font-size: 0.8em;
+    border: 1px solid #ccc;
+  }
+  
+  
+  
+  .fp-orange, .orangehover:hover {
+    color: #f90;
+  }
+  
+  
+  .flag {
+    font-size: 1.5em;
+    cursor: help;
+    width: 1em;
+    display: inline-block;
+    margin-left: 0.5em;
+  }
+  
+  .success {
+    background-color: #e1faea;
+  }
+  
+  .success:hover {
+    background-color: #cae1d3;
+  }
+  
+  .secondary {
+    background-color: #ebebeb;
+  }
+  
+  .secondary:hover {
+    background: #d4d4d4;
+  }
+  
+  .unsupported {
+    background-color: #fce6e2;
+    border: 1px solid #ccc;
+  }
+  
+  .unsupported:hover {
+    background-color: #e1ceca;
+    color: #fff;
+  }
+  
+  
+  .header {
+    color: #c60;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 0.5em;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .header::before {
+    content: '';
+    background-image: url('icon.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    vertical-align: middle;
+    margin-right: 0.5em;
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+  }
+  
+  .header.browserPopup {
+    font-size: 1.4em;
+    padding: 0.4em;
+  }
+  
+  .header.browserPopup::before {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .scroll {
+    max-height: 50vh;
+    overflow-y: auto;
+    scrollbar-color: #ddd #f5f5f5;
+    scrollbar-width: thin;
+  }
+  
+  
+  
+  .spinner {
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #f90;
+    display: flex;
+    font-size: 14em;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    transition: all 0.5s ease-in-out;
+    width: 100%;
+    z-index: 10000;
+  }
+  
+  .spinner.on {
+    opacity: 0.5;
+  }
+  
+  
+  
+  
+  
+  
+  /* ----- Popup ----- */
+  .popup {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 10000;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .popup.on {
+    opacity: 1;
+  }
+  .popup.on div:first-child {
+    transform: scale(1);
+  }
+  
+  .popup div:first-child {
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.2), 0 10px 15px 0 rgba(0, 0, 0, 0.3);
+    transform: scale(0.8);
+    transition: all 0.5s ease-in-out;
+    width: 50vw;
+  }
+  
+  .popup div div {
+    margin: 1em;
+  }
+  
+  .popup h3 {
+    color: #fff;
+    background-color: #630;
+    margin: 0 0 1em;
+    padding: 0.5em;
+    border-radius: 10px 10px 0 0 ;
+  }
+  
+  .popup h3::before {
+    content: '';
+    background-image: url('/images/icon.svg');
+    background-size: contain;
+    vertical-align: middle;
+    margin-right: 0.5em;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+  }
+  
+  .popup h4 {
+    margin-bottom: 0;
+  }
+  
+  .popup p {
+    margin: 0;
+  }
+  
+  /* ----- /Popup ----- */
+  
+  
+  /* ----- fa ----- */
+  i.fa {
+    color: #f90;
+    display: inline-block;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+  }
+  i.fa:hover {
+  
+  }
+  
+  a i.fa {
+    color: inherit;
+  }
+  
+  i.fa.fa-eye { 
+    font-size: 1.2em; 
+  }
+  
+  input[type="password"] + button i.fa.fa-eye {
+    color: #f90;
+  }
+  input[type="text"] + button i.fa.fa-eye {
+    color: #ccc;
+  }
+  
+  
+  
+  /* ----- tooltip ----- */
+  .tooltip {
+    position: relative;
+    cursor: help;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 20em;
+    background-color: #630;
+    color: white;
+    text-align: center;
+    border-radius: 3px;
+    padding: .8em;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 10%;
+    margin-left: -2em;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    font-weight: normal;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.5);
+    font-size: 0.9rem;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 1em;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .tooltiptext.center {
+    margin-left: -10em;
+  }
+  
+  .tooltiptext.center::after {
+    left: 50%;
+  }
+  
+  .tooltiptext.bottom {
+    top: 125%;
+    bottom: auto;
+  }
+  
+  .tooltiptext.bottom::after {
+    bottom: 100%;
+    top: auto;
+    left: 75%;
+    border-color: transparent transparent #555 transparent;
+  }
+  
+  .tooltip i.fa {
+    font-size: 1.2em;
+    color: black;
+  }
+  
+  .tooltip i.fa:hover {
+    color: #f90;
+  }
+  
+  .tooltiptable {
+    /* https://stackoverflow.com/questions/20626685/better-way-to-set-distance-between-flexbox-items */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: left;
+  }
+  
+  .tooltiptable > div {
+    /*
+      1/ - 2 columns per row
+      .5em - spacing between rows 
+    */
+    box-sizing: border-box;
+    margin-bottom: .5em;
+    width: calc(1/2*100% - (1 - 1/2)*10px);
+  }
+  
+  .tooltiptablefooter {
+    margin-top: 1em;
+    text-align: justify;
+  }
+  
+  .monospace {
+    font-family: monospace;
+  }
+  

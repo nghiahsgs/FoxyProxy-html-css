@@ -1,0 +1,157 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title data-i18n="options">FoxyProxy Options</title>
+    <link rel="icon" type="image/png" href="/images/icon.svg">
+    <!-- <link rel="stylesheet" href="styles/fontawesome-4.6.3.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+    <link rel="stylesheet" href="styles/app.css">
+    <style>
+      nav { width: 14em; margin-right: 0.5em; }
+      nav i.fa { margin-right: 0.4em; font-size: 1.6em; }
+      nav a { display: block; padding: 0.2em 0.5em; border-radius: 0 50px 50px 0; cursor: pointer;  }
+      nav a:hover { background-color: #ffebcd; }
+      button i.fa { font-size: 1.8em; color: #ccc; }
+      button i.fa:hover { color: #f90; }
+      button[data-i18n="help|title"] { margin-right: 0.5em; }
+      i.fa-lock { color: #ccc; font-size: 1.3em; vertical-align: middle; margin-right: 0.3em; }
+      i.fa.fa-lock.on, i.fa-lock.on:hover { color: #080; }
+
+      .rightColumn { padding: 1em; flex-grow: 1;   border: 1px solid #ccc; border-radius: 5px; }
+      .pxy { opacity: 1; transition: all 0.5s ease-in-out; border: 1px solid #ccc; border-radius: 5px;
+          margin: 0 0 0.2em 0; padding: 0.2em 0.4em; }
+      .pxy.on { box-shadow: 0px 2px 4px rgba(0,0,0,0.6); }
+      .pxy:first-of-type button.up,
+      .pxy:last-of-type button.down { visibility: hidden; }
+      #accounts { max-height: 60vh; }
+      #accounts div:last-of-type { margin: 0; }
+
+      .title, .address { display: inline-block; vertical-align: middle; }
+      .title { width: 6em; margin: 0 0.5em; }
+      .address { max-width: 10em; }
+      #accounts button.small { margin-left: 0.2em; }
+
+      .scroll { max-height: 40vh; padding-right: 0.2em; }
+
+      .color{
+        width: 2em;
+        display: inline-block;
+        border-radius: 5px;
+        border: 2px solid #fff;
+        box-shadow: 0px 2px 3px #777;
+        font-size: 0.8em;
+        width: 3em;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <!-- header -->
+    <div class="prime header" data-i18n="optionsPage">FoxyProxy Options</div>
+
+
+    <!-- spinner -->
+    <div class="spinner" style="display: none;"><i class="fa fa-refresh fa-spin"></i></div>
+
+    <!-- error -->
+    <div id="error" class="prime hide"><h5 data-i18n="erroNoSettings">No settings could be found. Please re-install FoxyProxy.</h5></div>
+
+
+    <!-- main -->
+    <div class="prime">
+      <div style="display: flex;">
+
+        <nav>
+          <a data-i18n="add"><i class="fa fa-plus-circle"></i>Add</a>
+          <a data-i18n="import"><i class="fa fa-download"></i>Import Settings</a>
+          <a data-i18n="importProxyList" "=""><i class="fa fa-list"></i>Import Proxy List</a>
+          <a data-i18n="export"><i class="fa fa-upload"></i>Export Settings</a>
+          <a data-i18n="deleteAll"><i class="fa fa-trash"></i>Delete All</a>
+          <a data-i18n="deleteBrowserData"><i class="fa fa-eraser" style="margin-right: 0.1em;"></i>Delete Browser Data</a>
+          <a href="https://getfoxyproxy.org/geoip/" target="_blank" data-i18n="myIP"><i class="fa fa-globe"></i>What's My IP?</a>
+          <a data-i18n="log"><i class="fa fa-file-text"></i>Log</a>
+          <a data-i18n="about"><i class="fa fa-info-circle"></i>About</a>
+        </nav>
+
+        <div id="rightColumn" class="rightColumn">
+
+          <!-- select & sync -->
+          <div id="selectAndSync" class="flex">
+            <select id="mode" style="color: red; display: flex;">
+              <option value="patterns" style="color: #f90;" data-i18n="modePatterns">Use Enabled Proxies By Patterns and Order</option>
+              <option value="disabled" style="color: red;" data-i18n="modeDisabled">Turn Off (Use Firefox Settings)</option>
+            <option value="sbxea81615084384857" style="color: rgb(102, 204, 102);">ipv6zzz</option></select>
+
+            <div style="text-align: right;">
+                <span data-i18n="syncSettings">Synchronize Settings</span>
+                <button type="button" class="plain" data-i18n="help|title" title="Help"><i class="fa fa-question-circle"></i></button>
+                <input class="switch" id="syncOnOff" type="checkbox"><label for="syncOnOff"></label>
+            </div>
+          </div>
+
+          <!-- proxy list -->
+          <div id="accounts" class="scroll"><div class="pxy flex secondary" id="sbxea81615084384857">
+            <div>
+              <span class="color" style="background-color: rgb(102, 204, 102);">&nbsp;</span>
+              <span class="title ellipsis">ipv6zzz</span>
+              <span class="address ellipsis">45.32.112.60</span>
+              <span class="flag hide"></span>
+
+            </div>
+            <div style="text-align: right;">
+              <i class="fa fa-lock on"></i>
+              <input name="onOff" class="switch" id="sbxea81615084384857-onoff" type="checkbox"><label for="sbxea81615084384857-onoff"></label>
+              <button type="button" class="small" data-i18n="edit">Edit</button>
+              <button type="button" class="small" data-i18n="patterns">Patterns</button>
+              <button type="button" class="plain" data-i18n="delete|title" title="Delete"><i class="fa fa-trash"></i></button>
+              <button type="button" class="plain up" data-i18n="up|title" title="move up"><i class="fa fa-caret-up"></i></button>
+              <button type="button" class="plain down" data-i18n="down|title" title="move down"><i class="fa fa-sort-desc"></i></button>
+            </div>
+          </div></div>
+          <div id="help" style="text-align: center; margin: 15% auto; display: none;"> <!-- try to center -->
+            <span data-i18n="noProxies">You do not have any proxy settings.</span>
+            Please click <a data-i18n="add" href="/proxy.html"><i class="fa fa-plus-circle"></i> Add</a> to start.
+          </div>
+
+          <!-- template -->
+          <div class="pxy flex template">
+            <div>
+              <span class="color">&nbsp;</span>
+              <span class="title ellipsis"></span>
+              <span class="address ellipsis"></span>
+              <span class="flag hide"></span>
+
+            </div>
+            <div style="text-align: right;">
+              <i class="fa fa-lock"></i>
+              <input name="onOff" class="switch" id="" type="checkbox"><label for=""></label>
+              <button type="button" class="small" data-i18n="edit">Edit</button>
+              <button type="button" class="small" data-i18n="patterns">Patterns</button>
+              <button type="button" class="plain" data-i18n="delete|title" title="Delete"><i class="fa fa-trash"></i></button>
+              <button type="button" class="plain up" data-i18n="up|title" title="move up"><i class="fa fa-caret-up"></i></button>
+              <button type="button" class="plain down" data-i18n="down|title" title="move down"><i class="fa fa-sort-desc"></i></button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- popup -->
+    <div class="popup">
+      <div>
+        <h3></h3>
+        <div></div>
+        <div style="text-align: right;">
+          <button type="button" class="alert" data-i18n="cancel">Cancel</button>&nbsp;
+          <button type="submit" data-i18n="ok">OK</button>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/options.js"></script>
+  
+</body></html>
